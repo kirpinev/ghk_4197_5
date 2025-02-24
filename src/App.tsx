@@ -12,6 +12,7 @@ import transfer from "./assets/transfer.png";
 import cash from "./assets/cash.png";
 import discount from "./assets/discount.png";
 import family from "./assets/family.png";
+import protection from "./assets/protection.png";
 import { LS, LSKeys } from "./ls";
 import { appSt } from "./style.css";
 import { ThxLayout } from "./thx/ThxLayout";
@@ -249,7 +250,7 @@ export const App = () => {
               Защита от мошенничества
             </Typography.TitleResponsive>
             <img
-              src={smileArrow}
+              src={protection}
               alt=""
               width={60}
               height={60}
@@ -302,7 +303,7 @@ export const App = () => {
               </div>
             ) : (
               <Typography.Text view="primary-medium" tag="p" color="primary">
-                Добавить за 99 ₽
+                Добавить за 99 ₽ в месяц
               </Typography.Text>
             )}
           </div>
