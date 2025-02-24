@@ -93,7 +93,7 @@ export const App = () => {
 
   const clickProtection = () => {
     window.gtag("event", "4197_add_protection", {
-      variant_name: "ghk_4197_5",
+      variant_name: "4197_5",
     });
   };
 
