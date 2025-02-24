@@ -21,6 +21,7 @@ import { useState } from "react";
 import { Status } from "@alfalab/core-components/status";
 import { List } from "@alfalab/core-components/list";
 import { StatusBadge } from "@alfalab/core-components/status-badge";
+import { sendDataToGA } from "./utils/events.ts";
 
 interface Product {
   title: string;
@@ -90,10 +91,16 @@ export const App = () => {
   const [thxShow, setThx] = useState(LS.getItem(LSKeys.ShowThx, false));
   const [protectionClicked, setProtectionClicked] = useState(false);
 
+  const clickProtection = () => {
+    window.gtag("event", "4197_add_protection", {
+      variant_name: "ghk_4197_5",
+    });
+  };
+
   const submit = () => {
     setLoading(true);
 
-    Promise.resolve().then(() => {
+    sendDataToGA({ is_protect: protectionClicked ? 1 : 0 }).then(() => {
       LS.setItem(LSKeys.ShowThx, true);
       setThx(true);
       setLoading(false);
@@ -252,7 +259,6 @@ export const App = () => {
             <img
               src={protection}
               alt=""
-              width={60}
               height={60}
               className={appSt.productIcon}
             />
@@ -281,7 +287,10 @@ export const App = () => {
               padding: "1rem",
               textAlign: "center",
             }}
-            onClick={() => setProtectionClicked(true)}
+            onClick={() => {
+              setProtectionClicked(true);
+              clickProtection();
+            }}
           >
             {protectionClicked ? (
               <div
