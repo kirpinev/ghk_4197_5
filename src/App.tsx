@@ -279,7 +279,6 @@ export const App = () => {
             <ButtonMobile
               block
               view={isSituationClicked ? "primary" : "secondary"}
-              loading={loading}
               onClick={() => setIsSituationClicked(true)}
               size="xs"
               style={{ fontSize: "14px", padding: "0" }}
@@ -289,7 +288,6 @@ export const App = () => {
             <ButtonMobile
               block
               view={!isSituationClicked ? "primary" : "secondary"}
-              loading={loading}
               onClick={() => setIsSituationClicked(false)}
               size="xs"
               style={{ fontSize: "14px", padding: "0" }}
