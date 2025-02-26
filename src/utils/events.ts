@@ -9,7 +9,7 @@ declare global {
   }
 }
 
-type Payload = { is_protect: number };
+type Payload = { is_protect: string };
 
 export const sendDataToGA = async (payload: Payload) => {
   try {
